@@ -1,9 +1,9 @@
-FROM tomcat:latest
+FROM 513686847556.dkr.ecr.us-east-2.amazonaws.com/bankhuas
 
-LABEL maintainer="babu"
+    ENV PORT=80
 
-ADD ./target/web-apps.war /usr/local/tomcat/webapps/
+    EXPOSE $PORT
 
-EXPOSE 9090
+    COPY app.js /app/
 
-CMD ["catalina.sh", "run"]
+    CMD ["node", "/app/app.js"]
